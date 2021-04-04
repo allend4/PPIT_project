@@ -1,0 +1,85 @@
+<DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="IDphone"
+      content="phones for all"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>IDphone</title>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+        
+
+    <header class="header">
+        <div class="sideMenu">
+            <button onclick="openSideMenu()">
+                &#9776;
+            </button>
+            <a href="index.html">IDphone</a>
+        </div>
+        <div class="headerMenu">
+            <a href="cart.html">cart</a>
+            <a href="login.html">log In</a>
+        </div>
+    </header>
+    
+    <aside class="sideBar">
+        <h3>Shopping Brands</h3>
+        <button class="sideBarClose" onclick="closeSideMenu()">x</button>
+        <ul>
+            <li>
+                <a href="index.html">Samsung</a>
+            </li>
+            <li>
+                <a href="index.html">Apple</a>
+            </li>
+            <li>
+                <a href="index.html">Google</a>
+            </li>
+        </ul>
+    </aside>
+
+    <main class="main">
+        <div class="product">
+      <ul class="items">
+
+        <li>
+            <div class="item">
+                <img class="itemImage" src="../images/IDphone-logo.png" alt="product item">
+                <div class="itemName"><a href="item.html" alt="item">S10</a></div>
+                <div class="itemBrand">Samsung</div>
+                <div class="itemPrice">250</div>
+                <div class="itemReview">4</div>
+            </div>
+        </li>
+        
+      </ul>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        copyright idphone
+    </footer>
+
+  </div>
+
+  <script>
+      function openSideMenu(){
+          document.querySelector(".sideBar").classList.add("open");
+      }
+      function closeSideMenu(){
+          document.querySelector(".sideBar").classList.remove("open");
+      }
+  </script>
+</body>
+
+</html>
