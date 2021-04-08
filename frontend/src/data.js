@@ -2,6 +2,7 @@ export default {
     /*subObjects products*/
     products:[
         {
+        _id: '1',
         name: 'S10',
         category: 'Samsung',
         image: '/images/10Samsung1.jpg',
@@ -11,6 +12,7 @@ export default {
         numReviews: 10
     },
     {
+        _id: '2',
         name: '12iPhonePro',
         category: 'iPhone',
         image: '/images/12iPhonePro1.jpg',
@@ -20,6 +22,7 @@ export default {
         numReviews: 9
     },
     {
+        _id: '3',
         name: 'HuaweiMatePro40',
         category: 'Huawei',
         image: '/images/40HuaweiMatePro1.jpg',
@@ -29,6 +32,7 @@ export default {
         numReviews: 12
     },
     {
+        _id: '4',
         name: 'S10',
         category: 'Samsung',
         image: '/images/10Samsung1.jpg',
@@ -38,6 +42,7 @@ export default {
         numReviews: 10
     },
     {
+        _id: '5',
         name: 'S10',
         category: 'Samsung',
         image: '/images/10Samsung1.jpg',
@@ -47,6 +52,7 @@ export default {
         numReviews: 10
     },
     {
+        _id: '6',
         name: 'S10',
         category: 'Samsung',
         image: '/images/10Samsung1.jpg',
@@ -56,6 +62,7 @@ export default {
         numReviews: 10
     },
     {
+        _id: '7',
         name: 'S10',
         category: 'Samsung',
         image: '/images/10Samsung1.jpg',
