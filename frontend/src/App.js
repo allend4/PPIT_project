@@ -1,7 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import data from './data';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
 import './App.css';
+import HomePage from './Pages/HomePage';
+import ProductPage from './Pages/ProductPage';
 
 function App() {
 
@@ -13,7 +16,7 @@ function App() {
 
   }
   return (
-
+    <BrowserRouter>
     <div className="container">
 
 
@@ -22,7 +25,8 @@ function App() {
           <button onClick={openSideMenu}>
             &#9776;
             </button>
-          <a href="index.html">IDphone</a>
+            <Link to="/">IDphone</Link>
+
         </div>
         <div className="headerMenu">
           <a href="cart.html">Cart</a> &nbsp;
@@ -44,24 +48,9 @@ function App() {
       <main className="main">
 
         <div className="product">
-          <ul className="items">
-          {
-            /* dinamic list of items*/
-            data.products.map(product =>
-            <li>
-              <div className="item">
-                <img className="itemImage" src={product.image} alt="product item"></img>
-                  <div className="itemName">
-                    <a href="item.html" alt="item">{product.name}</a></div>
-                  <div className="itemBrand">{product.brand}</div>
-                  <div className="itemPrice">{product.price}</div>
-                  <div className="itemReview">{product.rating} Stars ({product.numReviews})</div>           
-            </div>       
-        </li>)
-          }
-           
-           
-      </ul>
+          <Route path="/item/:id" component={ProductPage} />
+          <Route path="/" exact={true} component={HomePage} />
+       
         </div>    
         
     </main>
@@ -71,6 +60,7 @@ function App() {
     </footer>
 
   </div>
+  </BrowserRouter>
   );
 }
 
