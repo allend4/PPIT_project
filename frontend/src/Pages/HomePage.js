@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import data from '../data';
+//import data from '../data'; // dont need static data
+import axios from 'axios';
 
 function HomePage(props) {
+
+  const [products, setProduct] = useState([]);
+
+  useEffect (() => {
+    const fetchdata = async () => {
+      const {data} = await axios.get("api/products");
+      setProduct(data);
+    }
+    fetchdata(); // pulling data from server
+    return () => {
+      //
+    };
+  }, [])
+
     return    <ul className="items">
     {
       /* dinamic list of items*/
-      data.products.map(product =>
-      <li>
+      products.map(product =>
+      <li key={product._id}>
         <div className="item">
         <Link to={"/item/" + product._id} alt="item">
         <img className="itemImage" src={product.image} alt="product item"></img>

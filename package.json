@@ -1,5 +1,30 @@
 {
   "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
     "react-router-dom": "^5.2.0"
+  },
+  "name": "ppit_project",
+  "description": "Professional Practice in IT Group Project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --watch backend --exec babel-node backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allend4/PPIT_project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allend4/PPIT_project/issues"
+  },
+  "homepage": "https://github.com/allend4/PPIT_project#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-node": "^0.0.1-security",
+    "babel-preset-env": "^1.7.0"
   }
 }
