@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+//import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 //import data from '../data'; // dont need static data
-import axios from 'axios';
+//import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { listProducts } from '../actions/productActions';
 
@@ -22,7 +23,7 @@ function HomePage(props) {
     return () => {
       //
     };
-  }, [])
+  }, [dispatch])
 
     return  loading? <div>Loading...</div>: 
             error? <div>{ error }</div>: 
@@ -33,12 +34,12 @@ function HomePage(props) {
       products.map(product =>
       <li key={product._id}>
         <div className="item">
-        <Link to={"/item/" + product._id} alt="item">
+        <Link to={"/product/" + product._id} alt="item">
         <img className="itemImage" src={product.image} alt="product item"></img>
         </Link>
  
             <div className="itemName">
-              <Link to={"/item/" + product._id} alt="item">{product.name}</Link></div>
+              <Link to={"/product/" + product._id} alt="item">{product.name}</Link></div>
             <div className="itemBrand">{product.brand}</div>
             <div className="itemPrice">{product.price}</div>
             <div className="itemReview">{product.rating} Stars ({product.numReviews})</div>           

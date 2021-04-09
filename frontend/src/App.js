@@ -29,7 +29,7 @@ function App() {
 
         </div>
         <div className="headerMenu">
-          <a href="cart.html">Cart</a> &nbsp;
+          <a href="cart.html">Basket</a> &nbsp;
           <a href="login.html">Login</a>
         </div>
       </header>
@@ -48,9 +48,8 @@ function App() {
       <main className="main">
 
         <div className="product">
-          <Route path="/item/:id" component={ProductPage} />
+          <Route path="/product/:id" component={ProductPage} />
           <Route path="/" exact={true} component={HomePage} />
-       
         </div>    
         
     </main>
