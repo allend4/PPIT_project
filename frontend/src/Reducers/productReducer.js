@@ -1,4 +1,4 @@
-import { PRODUCT_FAIL, PRODUCT_REQUEST, PRODUCT_SUCCESS } from "../constants/productConstants";
+import { PRODUCT_FAIL, PRODUCT_FAIL_DET, PRODUCT_REQUEST, PRODUCT_REQUEST_DET, PRODUCT_SUCCESS, PRODUCT_SUCCESS_DET } from "../constants/productConstants";
 
 function productListReducer(state= {products:[]}, action) {
 
@@ -14,4 +14,18 @@ function productListReducer(state= {products:[]}, action) {
     }
 }
 
-export { productListReducer }
+function productDetailsReducer(state= {product:[]}, action) {
+
+    switch (action.type) {
+        case PRODUCT_REQUEST_DET:
+            return {loading: true} // loading box
+        case PRODUCT_SUCCESS_DET:
+            return {loading: false, product: action.payload}
+        case PRODUCT_FAIL_DET:
+            return { loading:false, error: action.payload}
+        default:
+            return state;
+    }
+}
+
+export { productListReducer, productDetailsReducer }
