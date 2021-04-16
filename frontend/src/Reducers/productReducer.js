@@ -14,15 +14,15 @@ function productListReducer(state= {products:[]}, action) {
     }
 }
 
-function productDetailsReducer(state= {product:[]}, action) {
+function productDetailsReducer(state=  {product: {} }, action) {
 
     switch (action.type) {
         case PRODUCT_REQUEST_DET:
             return {loading: true} // loading box
         case PRODUCT_SUCCESS_DET:
-            return {loading: false, product: action.payload}
+            return {loading: false, product: action.payload};
         case PRODUCT_FAIL_DET:
-            return { loading:false, error: action.payload}
+            return { loading: false, error: action.payload}
         default:
             return state;
     }
