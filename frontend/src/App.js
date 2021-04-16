@@ -3,6 +3,7 @@ import React from 'react';
 //import data from './data';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
 import './App.css';
+import CartPage from './Pages/CartPage';
 import HomePage from './Pages/HomePage';
 import ProductPage from './Pages/ProductPage';
 
@@ -49,7 +50,9 @@ function App() {
 
         <div className="product">
           <Route path="/product/:id" component={ProductPage} />
+          <Route path="/cart/:id?" component={CartPage} />
           <Route path="/" exact={true} component={HomePage} />
+
         </div>    
         
     </main>
