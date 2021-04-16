@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 //import logo from './logo.svg';
 //import data from './data';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
@@ -6,8 +7,14 @@ import './App.css';
 import CartPage from './Pages/CartPage';
 import HomePage from './Pages/HomePage';
 import ProductPage from './Pages/ProductPage';
+import SigninPage from './Pages/signinPage';
+import RegisterPage from './Pages/RegisterPage';
+//import { userSigninReducer } from './Reducers/userReducers';
 
 function App() {
+
+  const userSignin = useSelector(state => state.userSignin);
+  const {userInfo} = userSignin;
 
   const openSideMenu = () =>{
     document.querySelector(".sideBar").classList.add("open");
@@ -31,7 +38,10 @@ function App() {
         </div>
         <div className="headerMenu">
           <a href="cart.html">Basket</a> &nbsp;
-          <a href="login.html">Login</a>
+          {
+              userInfo ? <Link to="/profile">{userInfo.name}</Link> :
+                <Link to="/signin">Sign In</Link>
+            }         
         </div>
       </header>
 
@@ -49,6 +59,8 @@ function App() {
       <main className="main">
 
         <div className="product">
+          <Route path="/signin" component={SigninPage} />
+          <Route path="/register" component={RegisterPage} />
           <Route path="/product/:id" component={ProductPage} />
           <Route path="/cart/:id?" component={CartPage} />
           <Route path="/" exact={true} component={HomePage} />
