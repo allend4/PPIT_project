@@ -3,11 +3,11 @@ import { USER_REG_FAIL, USER_REG_REQ, USER_REG_SUC, USER_SIGNIN_FAIL, USER_SIGNI
 function userSigninReducer(state = {}, action) {
     switch (action.type) {
         case USER_SIGNIN_REQ:
-            return {loading: true};
+            return { loading: true };
         case USER_SIGNIN_SUC:
-            return { loading: false, userInfo: action.payload};
+            return { loading: false, userInfo: action.payload };
         case USER_SIGNIN_FAIL:
-            return { loading: false, error: action.payload};
+            return { loading: false, error: action.payload };
         default:
             return state;
     }
@@ -16,11 +16,11 @@ function userSigninReducer(state = {}, action) {
 function userRegisterReducer(state = {}, action) {
     switch (action.type) {
         case USER_REG_REQ:
-            return {loading: true};
+            return { loading: true };
         case USER_REG_SUC:
-            return { loading: false, userInfo: action.payload};
+            return { loading: false, userInfo: action.payload };
         case USER_REG_FAIL:
-            return { loading: false, error: action.payload};
+            return { loading: false, error: action.payload };
         default:
             return state;
     }

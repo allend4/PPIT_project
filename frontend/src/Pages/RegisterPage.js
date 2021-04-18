@@ -9,7 +9,7 @@ function RegisterPage(props) {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassowrd] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const userRegister = useSelector(state => state.userRegister);
     const { loading, userInfo, error } = userRegister; 
     const dispatch = useDispatch();
@@ -58,8 +58,8 @@ function RegisterPage(props) {
           </input>
         </li>
         <li>
-          <label htmlFor="confirmPassword">Password</label>
-          <input type="Password" id="confirmPassword" name="confirmPassword" onChange={(e) => setConfirmPassowrd(e.target.value)}>
+          <label htmlFor="confirmPassword">Confirm Password</label>
+          <input type="confirmPassword" id="confirmPassword" name="confirmPassword" onChange={(e) => setConfirmPassword(e.target.value)}>
           </input>
         </li>
         <li>
