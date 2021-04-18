@@ -9,6 +9,7 @@ import HomePage from './Pages/HomePage';
 import ProductPage from './Pages/ProductPage';
 import SigninPage from './Pages/signinPage';
 import RegisterPage from './Pages/RegisterPage';
+import ProductsPage from './Pages/ProductsPage';
 //import { userSigninReducer } from './Reducers/userReducers';
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
       <main className="main">
 
         <div className="product">
+          <Route path="/products" component={ProductsPage} />
           <Route path="/signin" component={SigninPage} />
           <Route path="/register" component={RegisterPage} />
           <Route path="/product/:id" component={ProductPage} />

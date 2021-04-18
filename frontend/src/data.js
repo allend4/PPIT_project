@@ -53,7 +53,7 @@ export default {
             price: 699,
             brand: 'OnePlus',
             rating: 4.6,
-            numReviews: 10,
+            numReviews: 12,
             inStockCounter: 6
         },
         {
@@ -64,7 +64,7 @@ export default {
             price: 860,
             brand: 'iPhone',
             rating: 4.6,
-            numReviews: 10,
+            numReviews: 20,
             inStockCounter: 5
         },
         {
@@ -75,7 +75,18 @@ export default {
             price: 549,
             brand: 'Xiaomi',
             rating: 4.6,
-            numReviews: 10,
+            numReviews: 9,
+            inStockCounter: 7
+        },
+        {
+            _id: '8',
+            name: 'Samsung S 21',
+            category: 'Samsung',
+            image: '/images/samsungs21.jpg',
+            price: 1019,
+            brand: 'Xiaomi',
+            rating: 4.9,
+            numReviews: 8,
             inStockCounter: 7
         },
     ]

@@ -1,5 +1,5 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import { productListReducer, productDetailsReducer } from './Reducers/productReducer'
+import { productListReducer, productDetailsReducer, productSaveReducer } from './Reducers/productReducer'
 import thunk from 'redux-thunk';
 import Cookie from 'js-cookie';
 import { cartReducer } from './Reducers/cartReducers';
@@ -7,14 +7,17 @@ import { userRegisterReducer, userSigninReducer } from './Reducers/userReducers'
 //import { basketReducer } from './Reducers/basketReducer';
 
 const cartItems = Cookie.getJSON("cartItems") || [];
+const userInfo = Cookie.getJSON('userInfo') || null;
 
-const initialState = { cart: { cartItems } };
+const initialState = { cart: { cartItems }, userSignin: { userInfo} };
 const reducer = combineReducers({
     productList: productListReducer,
     productDetails: productDetailsReducer,
     cart: cartReducer,
     userSignin: userSigninReducer,
-    userRegister: userRegisterReducer
+    userRegister: userRegisterReducer,
+    productSave: productSaveReducer
+
     //basket: basketReducer
 })
 
