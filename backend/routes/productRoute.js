@@ -1,16 +1,45 @@
 import express from 'express';
 import Product from '../models/productModel';
-import { getToken } from '../util';
+import { isAuth, isAdmin } from '../util';
 
 const router = express.Router();
 
 //get list of products to the user
-router.get("/", async(req, res) => {
+router.get("/", async (req, res) => {
     const products = await Product.find({});
     res.send(products);
 });
 //api to create product object
-router.post("/", async(req, res) =>{
+
+router.put("/:id", isAuth, isAdmin, async (req, res) => {
+    const productId = req.params.id;
+    const product = await Product.findById(productId);
+    if (product) {
+        product.name = req.body.name;
+        product.price = req.body.price;
+        product.image = req.body.image;
+        product.brand = req.body.brand;
+        product.category = req.body.category;
+        product.inStockCounter = req.body.inStockCounter;
+        product.description = req.body.description;
+        const updatedProduct = await product.save();
+        if (updatedProduct) {
+            return res.status(200).send({ message: 'Product Update', data: updatedProduct });
+        }
+    }
+    return res.status(500).send({ message: 'Error in Updating Product.' });
+});
+
+router.delete("/:id", isAuth, isAdmin, async (req, res) => {
+    const deletedProduct = await Product.findById(req.params.id);
+    if (deletedProduct) {
+        await deletedProduct.remove();
+        res.send({ message: "Product Deleted" });
+    } else {
+        res.send("Error in Deletion.");
+    }
+});
+router.post('/', isAuth, isAdmin, async (req, res) => {
     const product = new Product({
         name: req.body.name,
         price: req.body.price,
@@ -22,11 +51,11 @@ router.post("/", async(req, res) =>{
         rating: req.body.rating,
         numReviews: req.body.numReviews,
     });
-    //call save and check if product exist and save if not then error display
     const newProduct = await product.save();
-    if (newProduct){
-        return res.status(201).send({message: 'New Product Created', data: newProduct });
+    if (newProduct) {
+        return res.status(201).send({ message: 'New Product Created', data: newProduct });
     }
-    return res.status(500).send({message:' Error in Creating Product. ' })
-})
+    return res.status(500).send({ message: ' Error in Creating Product.' });
+});
+
 export default router;
