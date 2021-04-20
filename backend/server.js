@@ -18,9 +18,7 @@ mongoose.connect(mongodb_url, {
 }).catch(error => console.log(error.reason)); // mongodb error
 
 const app = express();
-
 app.use(bodyParser.json());
-
 app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
 
