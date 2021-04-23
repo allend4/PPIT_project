@@ -57,7 +57,17 @@ a{
 a:hover{
     color: #6cc9ff;
 }
-
+.menuList{
+  list-style-type: none;
+}
+/* logo */
+.logo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  top: -20px;
+}
 /* index */
 .items{
     display: flex;
