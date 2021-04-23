@@ -39,7 +39,7 @@ function App() {
             <Link to="/"></Link>
         </div>
         <div>
-        <Link to="/"><img src="../images/IDphone-logo-small.png" alt="IDphone logo" class="logo"/></Link>
+        <Link to="/"><img src="../images/IDphone-logo-small.png" alt="IDphone logo" className="logo"/></Link>
         </div>
         <div className="headerMenu">
           <a href="/basket/:id?">Basket</a> &nbsp;
