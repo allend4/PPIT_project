@@ -36,8 +36,10 @@ function App() {
           <button onClick={openSideMenu}>
             &#9776;
             </button>
-            <Link to="/">IDphone</Link>
-
+            <Link to="/"></Link>
+        </div>
+        <div>
+        <Link to="/"><img src="../images/IDphone-logo-small.png" alt="IDphone logo" class="logo"/></Link>
         </div>
         <div className="headerMenu">
           <a href="/basket/:id?">Basket</a> &nbsp;
@@ -50,7 +52,7 @@ function App() {
       <aside className="sideBar">
         <h3>Shopping Brands</h3>
         <button className="sideBarClose" onClick={closeSideMenu}>x</button>
-        <ul>
+        <ul class="menuList"> 
           <li>
             <a href="/">Samsung</a>
           </li>
@@ -58,7 +60,10 @@ function App() {
             <a href="/">Apple</a>
           </li>
           <li>
-            <a href="/">LG</a>
+            <a href="/">Motorola</a>
+          </li>
+          <li>
+            <a href="/">Huawei</a>
           </li>
         </ul>
       </aside>
