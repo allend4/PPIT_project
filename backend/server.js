@@ -1,5 +1,5 @@
 import express from 'express';
-import data from './data';
+//import data from './data';
 import config from './config';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
@@ -35,4 +35,4 @@ app.use("/api/products", productRoute);
 //    res.send(data.products);
 //});
 
-app.listen(4000, () => {console.log("Server started at http://localhost:4000") })
+app.listen(4000, () => { console.log("Server started at http://localhost:4000") })

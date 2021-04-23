@@ -2,24 +2,21 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { productListReducer, productDetailsReducer, productSaveReducer, productDeleteReducer } from './Reducers/productReducer'
 import thunk from 'redux-thunk';
 import Cookie from 'js-cookie';
-import { cartReducer } from './Reducers/cartReducers';
+import { basketReducer } from './Reducers/basketReducers';
 import { userRegisterReducer, userSigninReducer } from './Reducers/userReducers';
-//import { basketReducer } from './Reducers/basketReducer';
 
-const cartItems = Cookie.getJSON("cartItems") || [];
+const basketItems = Cookie.getJSON('basketItems') || [];
 const userInfo = Cookie.getJSON('userInfo') || null;
 
-const initialState = { cart: { cartItems }, userSignin: { userInfo} };
+const initialState = { basket: { basketItems, shipping: {}, payment: {} }, userSignin: { userInfo } };
 const reducer = combineReducers({
     productList: productListReducer,
     productDetails: productDetailsReducer,
-    cart: cartReducer,
+    basket: basketReducer,
     userSignin: userSigninReducer,
     userRegister: userRegisterReducer,
     productSave: productSaveReducer,
     productDelete: productDeleteReducer
-
-    //basket: basketReducer
 })
 
 const composeEnhancer = window._REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

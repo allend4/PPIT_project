@@ -21,7 +21,7 @@ function HomePage(props) {
     //fetchdata(); // pulling data from server
     dispatch(listProducts());
     return () => {
-      //
+      // error
     };
   }, [dispatch])
 
@@ -30,7 +30,7 @@ function HomePage(props) {
 
       <ul className="items">
         {
-          /* dinamic list of items*/
+          /* dynamic list of items*/
           products.map(product =>
             <li key={product._id}>
               <div className="item">
