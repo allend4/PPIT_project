@@ -2,7 +2,6 @@ import { PRODUCT_FAIL, PRODUCT_FAIL_DET, PRODUCT_REQUEST, PRODUCT_REQUEST_DET, P
     PRODUCT_SAVE_SUCCESS, PRODUCT_SAVE_FAIL,  PRODUCT_SUCCESS, PRODUCT_SUCCESS_DET, PRODUCT_REQUEST_DELETE,
     PRODUCT_SUCCESS_DELETE, PRODUCT_FAIL_DELETE } from "../constants/productConstants";
 
-
 function productListReducer(state = {products: [] }, action) {
 
     switch (action.type) {

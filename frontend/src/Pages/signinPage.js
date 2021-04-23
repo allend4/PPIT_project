@@ -3,38 +3,38 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { signin } from '../actions/userActions';
 
-
 function SigninPage(props) {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const userSignin = useSelector(state => state.userSignin);
-    const { loading, userInfo, error } = userSignin; 
-    const dispatch = useDispatch();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const userSignin = useSelector(state => state.userSignin);
+  const { loading, userInfo, error } = userSignin;
+  const dispatch = useDispatch();
+  const redirect = props.location.search ? props.location.search.split("=")[1] : '/';
 
-    useEffect(() => {
-        if(userInfo) {
-            props.history.push("/")
-        }
-        return () => {
-            //
-        };
-    }, [userInfo]);
-
-    const submitHandler = (e) => {
-        e.preventDefault();
-        dispatch(signin(email, password));
+  useEffect(() => {
+    if (userInfo) {
+      props.history.push(redirect)
     }
+    return () => {
+      //
+    };
+  }, [userInfo]);
 
-    return <div className="form">
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(signin(email, password));
+  }
+
+  return <div className="form">
     <form onSubmit={submitHandler} >
-      <ul className="form-container">
+      <ul className="formContainer">
         <li>
           <h2>Sign-In</h2>
         </li>
         <li>
           {loading && <div>Loading...</div>}
-          {error && <div>{error}</div>}
+          {error && <div>{ error }</div>}
         </li>
         <li>
           <label htmlFor="email">
@@ -55,7 +55,7 @@ function SigninPage(props) {
           New to IDphone?
         </li>
         <li>
-          <Link to="/register" className="detailsButton secondary textCentre" >Create your IDphone account</Link>
+          <Link to={redirect === "/" ? "register" : "register?redirect=" + redirect} className="detailsButton secondary textCentre" >Create your IDphone account</Link>
         </li>
       </ul>
     </form>

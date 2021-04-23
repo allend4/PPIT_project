@@ -6,31 +6,32 @@ import { register } from '../actions/userActions';
 
 function RegisterPage(props) {
 
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-    const userRegister = useSelector(state => state.userRegister);
-    const { loading, userInfo, error } = userRegister; 
-    const dispatch = useDispatch();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const userRegister = useSelector(state => state.userRegister);
+  const { loading, userInfo, error } = userRegister;
+  const dispatch = useDispatch();
+  const redirect = props.location.search ? props.location.search.split("=")[1] : '/';
 
-    useEffect(() => {
-        if(userInfo) {
-            props.history.push("/")
-        }
-        return () => {
-            //
-        };
-    }, [userInfo]);
-
-    const submitHandler = (e) => {
-        e.preventDefault();
-        dispatch(register(name, email, password));
+  useEffect(() => {
+    if (userInfo) {
+      props.history.push(redirect);
     }
+    return () => {
+      // error
+    };
+  }, [userInfo]);
 
-    return <div className="form">
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(register(name, email, password));
+  }
+
+  return <div className="form">
     <form onSubmit={submitHandler} >
-      <ul className="form-container">
+      <ul className="formContainer">
         <li>
           <h2>Create Account</h2>
         </li>
@@ -66,7 +67,7 @@ function RegisterPage(props) {
           <button type="submit" className="button primary">register</button>
         </li>
         <li>
-          Already have an account? <Link to="/signin">signin</Link>
+          Already have an account? <Link to={redirect === "/" ? "signin" : "signin?redirect=" + redirect} className="detailsButton secondary textCentre" >Create your IDphone account</Link>
         </li>
       </ul>
     </form>

@@ -4,12 +4,15 @@ import { useSelector } from 'react-redux';
 //import data from './data';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
 import './App.css';
-import CartPage from './Pages/CartPage';
+import BasketPage from './Pages/BasketPage';
 import HomePage from './Pages/HomePage';
 import ProductPage from './Pages/ProductPage';
 import SigninPage from './Pages/signinPage';
 import RegisterPage from './Pages/RegisterPage';
 import ProductsPage from './Pages/ProductsPage';
+import ShippingPage from './Pages/ShippingPage';
+import PaymentPage from './Pages/PaymentPage';
+import PlaceholderPage from './Pages/PlaceholderPage';
 //import { userSigninReducer } from './Reducers/userReducers';
 
 function App() {
@@ -28,7 +31,6 @@ function App() {
     <BrowserRouter>
     <div className="container">
 
-
       <header className="header">
         <div className="sideMenu">
           <button onClick={openSideMenu}>
@@ -38,11 +40,10 @@ function App() {
 
         </div>
         <div className="headerMenu">
-          <a href="cart.html">Basket</a> &nbsp;
+          <a href="/basket/:id?">Basket</a> &nbsp;
           {
-              userInfo ? <Link to="/profile">{userInfo.name}</Link> :
-                <Link to="/signin">Sign In</Link>
-            }         
+              userInfo ? <Link to="/profile">{userInfo.name}</Link> : <Link to="/signin">Sign In</Link>
+          }         
         </div>
       </header>
 
@@ -51,20 +52,28 @@ function App() {
         <button className="sideBarClose" onClick={closeSideMenu}>x</button>
         <ul>
           <li>
-            <a href="index.html">Samsung</a>
+            <a href="/">Samsung</a>
           </li>
-         
+          <li>
+            <a href="/">Apple</a>
+          </li>
+          <li>
+            <a href="/">LG</a>
+          </li>
         </ul>
       </aside>
 
       <main className="main">
 
         <div className="product">
+          <Route path="/placeorder" component={PlaceholderPage} />
           <Route path="/products" component={ProductsPage} />
+          <Route path="/payment" component={PaymentPage} />
+          <Route path="/shipping" component={ShippingPage} />
           <Route path="/signin" component={SigninPage} />
           <Route path="/register" component={RegisterPage} />
           <Route path="/product/:id" component={ProductPage} />
-          <Route path="/cart/:id?" component={CartPage} />
+          <Route path="/basket/:id?" component={BasketPage} />
           <Route path="/" exact={true} component={HomePage} />
 
         </div>    
@@ -72,7 +81,7 @@ function App() {
     </main>
 
         <footer className="footer">
-          copyright idphone
+        <span> &#169; David & Ion</span>
     </footer>
 
   </div>

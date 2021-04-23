@@ -19,7 +19,7 @@ function ProductPage(props) {
         };
     }, [dispatch])
 
-    const handleAddToCart = () => { props.history.push("/cart/" + props.match.params.id + "?qty=" + qty) }
+    const handleAddTobasket = () => { props.history.push("/basket/" + props.match.params.id + "?qty=" + qty) }
 
     return <div>
         <div className="backToResult">
@@ -51,20 +51,18 @@ function ProductPage(props) {
                                 <li>Price: {product.price}</li>
                                 <li>Status: {product.inStockCounter > 0 ? "In Stock" : "Out of Stock"}</li>
                                 <li>Qty:
-                            <select value={qty} onChange={(e) => { setQty(e.target.value) }}>
-
+                                    <select value={qty} onChange={(e) => { setQty(e.target.value) }}>
                                         {[...Array(product.inStockCounter).keys()].map(x => <option key={x + 1} value={x + 1}>{x + 1}</option>)}
                                     </select>
                                 </li>
                                 <li>
-                                    {product.inStockCounter > 0 && <button onClick={handleAddToCart} className="button primary">Add to Basket</button>}
+                                    {product.inStockCounter > 0 && <button onClick={handleAddTobasket} className="button primary">Add to Basket</button>}
                                 </li>
                             </ul>
                         </div>
                     </div>
                 )
         }
-
     </div>
 }
 
